@@ -2,14 +2,15 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          name="Custom ruleset"
          xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd
+http://pmd.sourceforge.net/ruleset/2.0.0 ">
 
     <description>
         Custom rules for checking JUnit test quality.
     </description>
 
 
-<!--
+    <!--
     <rule ref="rulesets/java/basic.xml"/>
     <rule ref="rulesets/java/unusedcode.xml"/>
     <rule ref="rulesets/java/imports.xml"/>
@@ -24,15 +25,15 @@
 -->
     <rule ref="category/java/bestpractices.xml">
         <exclude name="JUnitAssertionsShouldIncludeMessage"/>
-	    <exclude name="JUnitTestContainsTooManyAsserts"/>
-        <exclude name="JUnit4TestShouldUseAfterAnnotation" />
-        <exclude name="JUnit4TestShouldUseBeforeAnnotation" />
-        <exclude name="UseVarargs" />
-        <exclude name="AccessorMethodGeneration" />
+        <exclude name="JUnitTestContainsTooManyAsserts"/>
+        <exclude name="JUnit4TestShouldUseAfterAnnotation"/>
+        <exclude name="JUnit4TestShouldUseBeforeAnnotation"/>
+        <exclude name="UseVarargs"/>
+        <exclude name="AccessorMethodGeneration"/>
     </rule>
     <rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts">
         <properties>
-            <property name="maximumAsserts" value="5" />
+            <property name="maximumAsserts" value="5"/>
         </properties>
     </rule>
 </ruleset>
