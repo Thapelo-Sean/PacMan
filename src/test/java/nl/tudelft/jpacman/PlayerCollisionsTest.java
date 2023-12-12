@@ -37,7 +37,7 @@ public class PlayerCollisionsTest {
 
         //non-empty array of frames
         frames = new Sprite[]{new EmptySprite(), new EmptySprite()};
-        deathAnimation = new AnimatedSprite(frames, 1, true);
+        deathAnimation = new AnimatedSprite(frames, 0, true);
         player = new Player(spriteMap, deathAnimation);
         ghost = new Ghost(spriteMap, 0, 0)
         {
@@ -50,7 +50,7 @@ public class PlayerCollisionsTest {
 
 
     @Test
-    void testPlayerCollidingWithGhost() {
+    void playerCollidingWithGhost() {
         playerCollisions.collide(player, ghost);
         verify(pointCalculator).collidedWithAGhost(player, ghost);
         Assertions.assertFalse(player.isAlive());
@@ -58,7 +58,7 @@ public class PlayerCollisionsTest {
     }
 
     @Test
-    void testGhostCollidingWithPlayer() {
+    void ghostCollidingWithPlayer() {
         playerCollisions.collide(ghost, player);
         verify(pointCalculator).collidedWithAGhost(player, ghost);
         Assertions.assertFalse(player.isAlive());
@@ -66,14 +66,14 @@ public class PlayerCollisionsTest {
     }
 
     @Test
-    void testPlayerCollidingWithPellet() {
+    void playerCollidingWithPellet() {
         playerCollisions.collide(player, pellet);
         verify(pointCalculator).consumedAPellet(player, pellet);
         verify(pellet).leaveSquare();
     }
 
     @Test
-    void testPelletCollidingWithPlayer() {
+    void pelletCollidingWithPlayer() {
         playerCollisions.collide(pellet, player);
         verify(pointCalculator).consumedAPellet(player, pellet);
         verify(pellet).leaveSquare();
