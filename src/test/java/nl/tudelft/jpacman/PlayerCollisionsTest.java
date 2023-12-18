@@ -35,19 +35,16 @@ public class PlayerCollisionsTest {
         playerCollisions = new PlayerCollisions(pointCalculator);
         spriteMap = new HashMap<>();
 
-        //non-empty array of frames
         frames = new Sprite[]{new EmptySprite(), new EmptySprite()};
         deathAnimation = new AnimatedSprite(frames, 0, true);
         player = new Player(spriteMap, deathAnimation);
-        ghost = new Ghost(spriteMap, 0, 0)
-        {
+        ghost = new Ghost(spriteMap, 0, 0) {
             @Override
             public Optional<Direction> nextAiMove() {
                     return Optional.empty();
             }
         };
     }
-
 
     @Test
     void playerCollidingWithGhost() {
