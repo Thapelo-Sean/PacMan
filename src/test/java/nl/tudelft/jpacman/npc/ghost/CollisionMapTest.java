@@ -26,9 +26,7 @@ public class CollisionMapTest {
     private Player player;
     private Ghost ghost;
     private Pellet pellet;
-    private Sprite[] frames;
     private Map<Direction, Sprite> spriteMap;
-    private AnimatedSprite deathAnimation;
 
     @BeforeEach
     void setUp() {
@@ -37,8 +35,8 @@ public class CollisionMapTest {
         collisionMap = new DefaultPlayerInteractionMap(pointCalculator);
         spriteMap = new HashMap<>();
 
-        frames = new Sprite[]{new EmptySprite(), new EmptySprite()};
-        deathAnimation = new AnimatedSprite(frames, 0, true);
+        Sprite[] frames = new Sprite[]{new EmptySprite(), new EmptySprite()};
+        AnimatedSprite deathAnimation = new AnimatedSprite(frames, 0, true);
         player = new Player(spriteMap, deathAnimation);
         ghost = new Ghost(spriteMap, 0, 0) {
             @Override
